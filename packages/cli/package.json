@@ -1,0 +1,21 @@
+{
+  "name": "@proxyscope/cli",
+  "version": "0.1.0",
+  "description": "CLI for ProxyScope governance inspector",
+  "bin": {
+    "proxyscope": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@proxyscope/core": "0.1.0",
+    "commander": "^12.1.0"
+  },
+  "keywords": [
+    "cli",
+    "proxy",
+    "governance"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "proxyscope",
+  "version": "0.1.0",
+  "description": "Governance mutability inspector for EVM proxy contracts",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @proxyscope/core && npm run build -w @proxyscope/cli",
+    "build:web": "npm run build -w @proxyscope/core && npm run build -w @proxyscope/api && npm run build -w @proxyscope/web",
+    "test": "npm run test -w @proxyscope/core",
+    "dev:api": "npm run build -w @proxyscope/core && npm run dev -w @proxyscope/api",
+    "dev:web": "npm run dev -w @proxyscope/web",
+    "clean": "rm -rf packages/*/dist packages/*/node_modules apps/*/node_modules apps/*/.next node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/proxyscope"
+  },
+  "keywords": [
+    "ethereum",
+    "proxy",
+    "governance",
+    "upgradeability",
+    "security",
+    "evm"
+  ],
+  "author": "",
+  "license": "MIT"
+}

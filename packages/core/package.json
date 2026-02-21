@@ -1,0 +1,26 @@
+{
+  "name": "@proxyscope/core",
+  "version": "0.1.0",
+  "description": "Core governance inspection engine for EVM proxy contracts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest",
+    "test:run": "vitest --run"
+  },
+  "dependencies": {
+    "viem": "^2.46.2"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  },
+  "keywords": [
+    "ethereum",
+    "proxy",
+    "governance",
+    "upgradeability",
+    "evm"
+  ],
+  "license": "MIT"
+}
