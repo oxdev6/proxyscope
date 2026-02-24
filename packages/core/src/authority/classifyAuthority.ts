@@ -1,5 +1,6 @@
 import type { PublicClient } from "viem";
 import type { Address } from "../utils/rpc";
+import { detectGnosisSafe } from "./gnosisSafe";
 
 export type AuthorityType =
   | "Externally Owned Account (EOA)"
@@ -24,6 +25,22 @@ export async function classifyAuthority(
     return {
       authorityAddress: address,
       authorityType: "Externally Owned Account (EOA)",
+    };
+  }
+
+  const safeInfo = await detectGnosisSafe(client, address);
+  if (safeInfo.isSafe && safeInfo.owners && safeInfo.threshold !== undefined) {
+    const ownersCount = safeInfo.owners.length;
+    const threshold = safeInfo.threshold;
+    const details: string[] = [
+      `Owners: ${ownersCount}`,
+      `Threshold: ${threshold.toString()}`,
+    ];
+
+    return {
+      authorityAddress: address,
+      authorityType: "Gnosis Safe Multisig",
+      details,
     };
   }
 
