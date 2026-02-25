@@ -1,6 +1,7 @@
 import type { PublicClient } from "viem";
 import type { Address } from "../utils/rpc";
 import { detectGnosisSafe } from "./gnosisSafe";
+import { detectTimelock } from "./timelock";
 
 export type AuthorityType =
   | "Externally Owned Account (EOA)"
@@ -25,6 +26,22 @@ export async function classifyAuthority(
     return {
       authorityAddress: address,
       authorityType: "Externally Owned Account (EOA)",
+    };
+  }
+
+  const timelockInfo = await detectTimelock(client, address);
+  if (timelockInfo.isTimelock && timelockInfo.minDelay !== undefined) {
+    const seconds = timelockInfo.minDelay;
+    const daysApprox = Number(seconds) / (60 * 60 * 24);
+    const details: string[] = [
+      `Minimum Delay (seconds): ${seconds.toString()}`,
+      `Minimum Delay (approx days): ${daysApprox.toFixed(2)}`,
+    ];
+
+    return {
+      authorityAddress: address,
+      authorityType: "Timelock Controller",
+      details,
     };
   }
 
