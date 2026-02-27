@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Risk Evaluation Snapshot Tests > should match snapshot for EOA-controlled proxy 1`] = `
+{
+  "level": "High",
+  "reasoning": [
+    "Single key compromise risk: one compromised key enables immediate upgrades.",
+    "No execution delay: upgrades can be applied immediately.",
+    "No multisig protection: no threshold approval required.",
+  ],
+  "summary": "Upgrade authority is a single externally owned account",
+}
+`;
+
+exports[`Risk Evaluation Snapshot Tests > should match snapshot for Proxy → Timelock → Safe → EOA 1`] = `
+{
+  "level": "Low",
+  "reasoning": [
+    "Execution delay present: upgrades require waiting period before execution.",
+    "Multisig approval required: threshold signers must approve.",
+    "Governance transparency: delay allows community review of proposed changes.",
+  ],
+  "summary": "Upgrade authority uses timelock with multisig",
+}
+`;
+
+exports[`Risk Evaluation Snapshot Tests > should match snapshot for Safe-only 1`] = `
+{
+  "level": "Medium",
+  "reasoning": [
+    "Multisig threshold enforced: multiple signers required.",
+    "No execution delay: upgrades can be applied immediately after multisig approval.",
+    "Coordinated signer risk: if threshold signers collude, upgrades proceed without delay.",
+  ],
+  "summary": "Upgrade authority is a multisig without timelock",
+}
+`;
+
+exports[`Risk Evaluation Snapshot Tests > should match snapshot for non-upgradeable 1`] = `
+{
+  "level": "VeryLow",
+  "reasoning": [
+    "No proxy pattern detected at this address.",
+    "Contract logic cannot be upgraded without redeployment.",
+  ],
+  "summary": "Contract is not upgradeable",
+}
+`;

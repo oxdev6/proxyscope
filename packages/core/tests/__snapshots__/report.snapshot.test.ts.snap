@@ -1,0 +1,126 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProxyScopeReport JSON Schema Snapshot > should match snapshot for Proxy → Timelock (terminal node) 1`] = `
+{
+  "analysis": {
+    "notes": [
+      "Proxy uses EIP-1967 storage slots.",
+      "This contract's logic can be upgraded by a timelock controller.",
+      "Users should review who can schedule and execute timelocked operations and whether the delay is appropriate.",
+    ],
+    "ultimateControllerAddress": "0xADDRESS",
+    "ultimateControllerType": "Timelock Controller",
+    "upgradeable": true,
+  },
+  "chain": {
+    "explorerAddressUrl": "https://etherscan.io/address/0xADDRESS",
+    "explorerBaseUrl": "https://etherscan.io/address/",
+    "id": 1,
+    "name": "Ethereum",
+  },
+  "contract": {
+    "address": "0xADDRESS",
+    "bytecodePresent": true,
+  },
+  "proxy": {
+    "admin": {
+      "address": "0xADDRESS",
+      "rawSlotValue": "0xADDRESS000000000000000000000003",
+    },
+    "detected": true,
+    "implementation": {
+      "address": "0xADDRESS",
+      "rawSlotValue": "0xADDRESS000000000000000000000002",
+    },
+    "type": "EIP-1967",
+  },
+  "risk": {
+    "level": "Low",
+    "reasoning": [
+      "Execution delay present: upgrades require waiting period before execution.",
+      "Governance transparency: delay allows review of proposed changes.",
+    ],
+    "summary": "Upgrade authority uses timelock",
+  },
+  "upgradeAuthority": {
+    "depth": 1,
+    "topology": {
+      "address": "0xADDRESS",
+      "details": [
+        "Minimum Delay (seconds): 172800",
+        "Minimum Delay (approx days): 2.00",
+      ],
+      "type": "Timelock Controller",
+    },
+  },
+}
+`;
+
+exports[`ProxyScopeReport JSON Schema Snapshot > should match snapshot for manually constructed Proxy → Timelock → Safe → EOA topology 1`] = `
+{
+  "analysis": {
+    "notes": [
+      "Proxy uses EIP-1967 storage slots.",
+      "This contract's logic can be upgraded by a timelock controller.",
+      "Users should review who can schedule and execute timelocked operations and whether the delay is appropriate.",
+    ],
+    "ultimateControllerAddress": "0xADDRESS",
+    "ultimateControllerType": "Externally Owned Account (EOA)",
+    "upgradeable": true,
+  },
+  "chain": {
+    "explorerAddressUrl": "https://etherscan.io/address/0xADDRESS",
+    "explorerBaseUrl": "https://etherscan.io/address/",
+    "id": 1,
+    "name": "Ethereum",
+  },
+  "contract": {
+    "address": "0xADDRESS",
+    "bytecodePresent": true,
+  },
+  "proxy": {
+    "admin": {
+      "address": "0xADDRESS",
+      "rawSlotValue": "0xADDRESS000000000000000000000003",
+    },
+    "detected": true,
+    "implementation": {
+      "address": "0xADDRESS",
+      "rawSlotValue": "0xADDRESS000000000000000000000002",
+    },
+    "type": "EIP-1967",
+  },
+  "risk": {
+    "level": "Low",
+    "reasoning": [
+      "Execution delay present: upgrades require waiting period before execution.",
+      "Multisig approval required: threshold signers must approve.",
+      "Governance transparency: delay allows community review of proposed changes.",
+    ],
+    "summary": "Upgrade authority uses timelock with multisig",
+  },
+  "upgradeAuthority": {
+    "depth": 3,
+    "topology": {
+      "address": "0xADDRESS",
+      "details": [
+        "Minimum Delay (seconds): 172800",
+        "Minimum Delay (approx days): 2.00",
+      ],
+      "owner": {
+        "address": "0xADDRESS",
+        "details": [
+          "Owners: 5",
+          "Threshold: 3",
+        ],
+        "owner": {
+          "address": "0xADDRESS",
+          "type": "Externally Owned Account (EOA)",
+        },
+        "type": "Gnosis Safe Multisig",
+      },
+      "type": "Timelock Controller",
+    },
+  },
+}
+`;
