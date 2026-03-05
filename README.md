@@ -117,9 +117,11 @@ npm run dev:api  # Terminal 1: Start API server (port 3001)
 npm run dev:web  # Terminal 2: Start web app (port 3000)
 ```
 
-See `apps/web/README.md` and `apps/api/README.md` for detailed setup instructions.
+See `apps/web/README.md` and `apps/api/README.md` for detailed setup. See `DEPLOYMENT.md` for production deployment (Vercel, Docker).
 
 ## Current Scope (v0.1)
+
+Proxy detection supports **EIP-1967 only**. UUPS, Transparent, and Beacon proxies are not yet implemented.
 
 - ✅ EIP-1967 proxy detection
 - ✅ Safe multisig detection
@@ -132,7 +134,7 @@ See `apps/web/README.md` and `apps/api/README.md` for detailed setup instruction
 ## Roadmap
 
 - [ ] Additional proxy patterns (UUPS, Beacon)
-- ✅ Web interface (explorer-grade, professional)
+- ✅ Web interface
 - [ ] More authority types (Compound Governor, Aave Governance)
 - [ ] ENS resolution support
 
