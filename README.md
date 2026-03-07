@@ -117,7 +117,7 @@ npm run dev:api  # Terminal 1: Start API server (port 3001)
 npm run dev:web  # Terminal 2: Start web app (port 3000)
 ```
 
-See `apps/web/README.md` and `apps/api/README.md` for detailed setup. See `DEPLOYMENT.md` for production deployment (Vercel, Docker).
+See `apps/web/README.md` and `apps/api/README.md` for setup. See `DEPLOYMENT.md` for production deployment. See `PROPOSAL_CLAIMS.md` for accurate proposal wording.
 
 ## Current Scope (v0.1)
 

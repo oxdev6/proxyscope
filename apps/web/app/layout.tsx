@@ -4,7 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ProxyScope — Governance Mutability Inspector",
   description:
-    "ProxyScope surfaces contract upgrade authority and governance mutability risk across networks.",
+    "ProxyScope surfaces contract upgrade authority and governance mutability risk across networks. EIP-1967 proxy detection.",
+  openGraph: {
+    title: "ProxyScope — Governance Mutability Inspector",
+    description:
+      "Surface contract upgrade authority and governance risk. Inspect EIP-1967 proxies.",
+  },
 };
 
 export default function RootLayout({

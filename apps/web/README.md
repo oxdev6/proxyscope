@@ -33,14 +33,7 @@ Create a `.env.local` file in `apps/api/` with these variables.
 
 ## Architecture
 
-- **Next.js App Router** - Modern React framework
+- **Next.js App Router** - React framework
 - **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first styling
-- **Radix UI** - Accessible component primitives
-
-## Design Philosophy
-
-- **Explorer-grade** - Professional, institutional feel
-- **Monochrome + restrained accent** - Analytical, neutral
-- **Data-dense** - Information-first, not marketing
-- **API-first** - Raw JSON output available
+- **Tailwind CSS** - Styling
+- **Radix UI** - Accessible components

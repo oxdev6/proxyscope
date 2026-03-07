@@ -41,7 +41,12 @@ export default function HomeClient({
     setReport(null);
 
     try {
-      const response = await fetch("/api/inspect", {
+      const apiBase =
+        typeof process.env.NEXT_PUBLIC_API_URL === "string" &&
+        process.env.NEXT_PUBLIC_API_URL.length > 0
+          ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "")
+          : "";
+      const response = await fetch(`${apiBase}/api/inspect`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
