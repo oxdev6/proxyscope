@@ -1,0 +1,19 @@
+# Source files
+packages/*/src/
+packages/*/tests/
+*.ts
+!*.d.ts
+
+# Config files
+tsconfig.json
+vitest.config.ts
+*.config.ts
+
+# Development
+.git/
+.gitignore
+README.md
+.npmignore
+
+# Build artifacts (keep dist/)
+*.tsbuildinfo
